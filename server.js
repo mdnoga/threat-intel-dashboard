@@ -151,8 +151,21 @@ fetchAllFeeds().then(() => {
   console.log("Initial feed fetch complete");
 });
 
-app.listen(PORT, () => {
-  console.log(
-    `Threat Intel Dashboard running at http://localhost:${PORT}`
-  );
-});
+function tryListen(port, maxAttempts = 10) {
+  const server = app.listen(port, () => {
+    console.log(
+      `Threat Intel Dashboard running at http://localhost:${port}`
+    );
+  });
+  server.on("error", (err) => {
+    if (err.code === "EADDRINUSE" && maxAttempts > 1) {
+      console.log(`Port ${port} in use, trying ${port + 1}...`);
+      tryListen(port + 1, maxAttempts - 1);
+    } else {
+      console.error(`Failed to start server: ${err.message}`);
+      process.exit(1);
+    }
+  });
+}
+
+tryListen(PORT);
