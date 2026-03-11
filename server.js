@@ -16,6 +16,8 @@ const parser = new Parser({
 
 const PORT = process.env.PORT || 3000;
 const CACHE_TTL_MS = 5 * 60 * 1000;
+const AUTH_USER = process.env.AUTH_USER || "";
+const AUTH_PASS = process.env.AUTH_PASS || "";
 
 let feedCache = { items: [], fetchedAt: 0 };
 
@@ -88,6 +90,23 @@ async function fetchAllFeeds() {
     `Fetched ${items.length} items from ${feeds.length} feeds`
   );
   return items;
+}
+
+if (AUTH_USER && AUTH_PASS) {
+  app.use((req, res, next) => {
+    const header = req.headers.authorization || "";
+    const [scheme, encoded] = header.split(" ");
+    if (scheme === "Basic" && encoded) {
+      const decoded = Buffer.from(encoded, "base64").toString();
+      const [user, pass] = decoded.split(":");
+      if (user === AUTH_USER && pass === AUTH_PASS) {
+        return next();
+      }
+    }
+    res.set("WWW-Authenticate", 'Basic realm="Threat Intel"');
+    res.status(401).send("Authentication required");
+  });
+  console.log("Basic auth enabled");
 }
 
 app.use(express.static(join(__dirname, "public")));
