@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threat Intel Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <div class="brand">
+        <span class="brand-icon">🛡️</span>
+        <h1>Threat Intel</h1>
+      </div>
+      <div class="header-controls">
+        <div class="search-box">
+          <input type="search" id="search" placeholder="Search threats..." autocomplete="off">
+        </div>
+        <button id="refresh-btn" class="icon-btn" title="Refresh feeds">↻</button>
+        <div class="status-dot" id="status-dot" title="Feed status"></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="category-bar">
+    <div class="category-bar-inner">
+      <button class="cat-btn active" data-category="all">
+        All
+        <span class="cat-count" id="count-all">0</span>
+      </button>
+      <button class="cat-btn" data-category="threats">
+        Threats
+        <span class="cat-count" id="count-threats">0</span>
+      </button>
+      <button class="cat-btn" data-category="cves">
+        CVEs
+        <span class="cat-count" id="count-cves">0</span>
+      </button>
+      <button class="cat-btn" data-category="ransomware">
+        Ransomware
+        <span class="cat-count" id="count-ransomware">0</span>
+      </button>
+      <button class="cat-btn" data-category="hacks">
+        Hacks
+        <span class="cat-count" id="count-hacks">0</span>
+      </button>
+      <button class="cat-btn" data-category="research">
+        Research
+        <span class="cat-count" id="count-research">0</span>
+      </button>
+      <button class="cat-btn" data-category="industry">
+        Industry
+        <span class="cat-count" id="count-industry">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="content">
+    <div class="info-bar">
+      <span id="result-count"></span>
+      <span id="last-updated"></span>
+    </div>
+    <div id="feed-list" class="feed-list">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Fetching threat intelligence...</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{
+  "feeds": [
+    {
+      "name": "The Hacker News",
+      "url": "https://feeds.feedburner.com/TheHackersNews",
+      "category": "threats"
+    },
+    {
+      "name": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/feed/",
+      "category": "threats"
+    },
+    {
+      "name": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/feed/",
+      "category": "hacks"
+    },
+    {
+      "name": "Dark Reading",
+      "url": "https://www.darkreading.com/rss.xml",
+      "category": "industry"
+    },
+    {
+      "name": "SecurityWeek",
+      "url": "https://feeds.feedburner.com/securityweek",
+      "category": "industry"
+    },
+    {
+      "name": "CISA Alerts",
+      "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+      "category": "threats"
+    },
+    {
+      "name": "CISA KEV",
+      "url": "https://www.cisa.gov/sites/default/files/feeds/known-exploited-vulnerabilities.json",
+      "category": "cves"
+    },
+    {
+      "name": "NVD CVE Feed",
+      "url": "https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss-analyzed.xml",
+      "category": "cves"
+    },
+    {
+      "name": "CVE.org Recent",
+      "url": "https://cveawg.mitre.org/api/cve-recent.atom",
+      "category": "cves"
+    },
+    {
+      "name": "Mandiant Blog",
+      "url": "https://www.mandiant.com/resources/blog/rss.xml",
+      "category": "research"
+    },
+    {
+      "name": "Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/feed/",
+      "category": "research"
+    },
+    {
+      "name": "Google Project Zero",
+      "url": "https://googleprojectzero.blogspot.com/feeds/posts/default",
+      "category": "research"
+    },
+    {
+      "name": "Recorded Future",
+      "url": "https://www.recordedfuture.com/feed",
+      "category": "threats"
+    },
+    {
+      "name": "Schneier on Security",
+      "url": "https://www.schneier.com/feed/atom/",
+      "category": "research"
+    },
+    {
+      "name": "Sophos News",
+      "url": "https://news.sophos.com/en-us/feed/",
+      "category": "ransomware"
+    },
+    {
+      "name": "Malwarebytes Blog",
+      "url": "https://www.malwarebytes.com/blog/feed/index.xml",
+      "category": "ransomware"
+    },
+    {
+      "name": "SentinelOne Blog",
+      "url": "https://www.sentinelone.com/blog/feed/",
+      "category": "ransomware"
+    },
+    {
+      "name": "Exploit Database",
+      "url": "https://www.exploit-db.com/rss.xml",
+      "category": "cves"
+    }
+  ]
+}

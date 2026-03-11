@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threat Intel - TV Display</title>
+  <link rel="stylesheet" href="tv.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="tv-layout">
+
+    <!-- HEADER -->
+    <header class="tv-header">
+      <div class="tv-brand">
+        <span class="tv-brand-icon">🛡️</span>
+        <h1>Threat Intel</h1>
+      </div>
+      <div class="tv-status-dot" id="status-dot" title="Feed status"></div>
+      <div class="tv-header-stat">
+        Items: <span class="value" id="total-count">--</span>
+      </div>
+      <div class="tv-header-stat">
+        Sources: <span class="value" id="source-count">--</span>
+      </div>
+      <div class="tv-header-spacer"></div>
+      <div class="tv-header-stat">
+        Updated: <span class="value" id="last-updated">--</span>
+      </div>
+      <div class="tv-clock" id="clock">--:--:--</div>
+    </header>
+
+    <!-- ANALYTICS ROW -->
+    <div class="tv-analytics">
+
+      <!-- WORLD MAP -->
+      <div class="tv-map-panel">
+        <div class="tv-panel-title">Threat Attribution Map</div>
+        <div class="tv-map-container" id="map-container">
+          <div class="tv-loading"><div class="tv-spinner"></div>Loading map...</div>
+        </div>
+        <div class="tv-map-legend">
+          <div class="tv-map-legend-item">
+            <div class="tv-map-legend-dot" style="background:hsl(0,80%,25%)"></div>
+            Low
+          </div>
+          <div class="tv-map-legend-item">
+            <div class="tv-map-legend-dot" style="background:hsl(0,80%,40%)"></div>
+            Medium
+          </div>
+          <div class="tv-map-legend-item">
+            <div class="tv-map-legend-dot" style="background:hsl(0,80%,60%)"></div>
+            High
+          </div>
+          <div class="tv-map-legend-item">
+            <div class="tv-map-legend-dot" style="background:hsl(0,80%,60%);box-shadow:0 0 6px hsl(0,80%,50%)"></div>
+            Active
+          </div>
+        </div>
+      </div>
+
+      <!-- CHARTS -->
+      <div class="tv-charts">
+        <div class="tv-chart-panel">
+          <div class="tv-panel-title">Categories</div>
+          <canvas id="chart-categories"></canvas>
+        </div>
+        <div class="tv-chart-panel">
+          <div class="tv-panel-title">24h Activity Timeline</div>
+          <canvas id="chart-timeline"></canvas>
+        </div>
+        <div class="tv-chart-panel">
+          <div class="tv-panel-title">Top Sources</div>
+          <canvas id="chart-sources"></canvas>
+        </div>
+        <div class="tv-chart-panel">
+          <div class="tv-panel-title">Weekly Heatmap</div>
+          <canvas id="chart-heatmap"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEED COLUMNS -->
+    <div class="tv-feeds">
+      <div class="tv-feed-column" data-category="threats">
+        <div class="tv-feed-column-header">
+          <span class="tv-category-tag tag-threats">Threats</span>
+          <span class="tv-feed-count" id="feed-count-threats">0</span>
+        </div>
+        <div class="tv-feed-scroller">
+          <div class="tv-feed-track" id="feed-track-threats"></div>
+        </div>
+      </div>
+      <div class="tv-feed-column" data-category="cves">
+        <div class="tv-feed-column-header">
+          <span class="tv-category-tag tag-cves">CVEs</span>
+          <span class="tv-feed-count" id="feed-count-cves">0</span>
+        </div>
+        <div class="tv-feed-scroller">
+          <div class="tv-feed-track" id="feed-track-cves"></div>
+        </div>
+      </div>
+      <div class="tv-feed-column" data-category="ransomware">
+        <div class="tv-feed-column-header">
+          <span class="tv-category-tag tag-ransomware">Ransomware</span>
+          <span class="tv-feed-count" id="feed-count-ransomware">0</span>
+        </div>
+        <div class="tv-feed-scroller">
+          <div class="tv-feed-track" id="feed-track-ransomware"></div>
+        </div>
+      </div>
+      <div class="tv-feed-column" data-category="hacks">
+        <div class="tv-feed-column-header">
+          <span class="tv-category-tag tag-hacks">Hacks</span>
+          <span class="tv-feed-count" id="feed-count-hacks">0</span>
+        </div>
+        <div class="tv-feed-scroller">
+          <div class="tv-feed-track" id="feed-track-hacks"></div>
+        </div>
+      </div>
+      <div class="tv-feed-column" data-category="research">
+        <div class="tv-feed-column-header">
+          <span class="tv-category-tag tag-research">Research</span>
+          <span class="tv-feed-count" id="feed-count-research">0</span>
+        </div>
+        <div class="tv-feed-scroller">
+          <div class="tv-feed-track" id="feed-track-research"></div>
+        </div>
+      </div>
+      <div class="tv-feed-column" data-category="industry">
+        <div class="tv-feed-column-header">
+          <span class="tv-category-tag tag-industry">Industry</span>
+          <span class="tv-feed-count" id="feed-count-industry">0</span>
+        </div>
+        <div class="tv-feed-scroller">
+          <div class="tv-feed-track" id="feed-track-industry"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="tv.js"></script>
+</body>
+</html>

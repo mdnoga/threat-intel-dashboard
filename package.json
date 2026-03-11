@@ -1,0 +1,14 @@
+{
+  "name": "threat-intel-dashboard",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cybersecurity threat intelligence dashboard",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "4.21.2",
+    "rss-parser": "3.13.0"
+  }
+}
